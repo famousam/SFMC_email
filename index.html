@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IU Fernstudium Banner</title>
+<style>
+  /* 
+   * CSS for interactions (Hover) 
+   * This sits in the head because inline styles cannot handle hover states.
+   */
+  .cta-button {
+    transition: transform 0.2s ease-in-out;
+  }
+  .cta-button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+</style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+
+<!-- 
+===================================================================
+ SALESFORCE MARKETING CLOUD CONFIGURATION
+===================================================================
+%%[
+    /* 1. CONTENT VARIABLES */
+    /* Leave a variable empty "" to hide that element */
+    
+    VAR @BrandColor, @BgImage
+    SET @BrandColor = "#FFFE00"
+    SET @BgImage    = "background.png"
+
+    VAR @Overline, @Headline1, @Headline2
+    SET @Overline   = "FERNSTUDIUM"
+    SET @Headline1  = "MEIN STUDIUM."
+    SET @Headline2  = "MEINE REGELN."
+
+    VAR @CTAText, @CTAUrl
+    SET @CTAText    = "INFOBROSCHÜRE HERUNTERLADEN"
+    SET @CTAUrl     = "https://www.iu-fernstudium.de/studienplatz-sichern/"
+
+    VAR @Badge1, @Badge2, @Badge3
+    SET @Badge1     = "1.svg"
+    SET @Badge2     = "2.png"
+    SET @Badge3     = "3.png"
+]%%
+-->
+
+<!-- MAIN BANNER CONTAINER -->
+<!-- All styles are inline to ensure maximum compatibility -->
+<div style="position: relative; width: 1200px; height: 600px; background-color: #FFFE00; overflow: hidden; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; box-shadow: 0 20px 50px rgba(0,0,0,0.15);">
+    
+    <!-- 1. Background Image -->
+    <!-- Ideally put: src="%%=v(@BgImage)=%%" inside SFMC -->
+    <img src="background.png" alt="" width="1200" height="600" 
+         style="position: absolute; top: 0; left: 0; width: 1200px; height: 600px; object-fit: cover; z-index: 1; border: 0; display: block;">
+
+    <!-- 2. Overline -->
+    <!-- %%[ IF NOT EMPTY(@Overline) THEN ]%% -->
+    <div style="position: absolute; z-index: 10; top: 211px; left: 25px; 
+                background-color: #1D1D1F; color: #FFFFFF; 
+                font-size: 33px; font-weight: 700; padding: 8px 20px; 
+                line-height: 1.0; white-space: nowrap; pointer-events: none;">
+        FERNSTUDIUM
+    </div>
+    <!-- %%[ ENDIF ]%% -->
+
+    <!-- 3. Headline 1 -->
+    <!-- %%[ IF NOT EMPTY(@Headline1) THEN ]%% -->
+    <div style="position: absolute; z-index: 10; top: 269px; left: 24px; 
+                background-color: #FFFE00; color: #1D1D1F; 
+                font-size: 53px; font-weight: 900; padding: 9px 14px; 
+                line-height: 1.0; white-space: nowrap; pointer-events: none;">
+        MEIN STUDIUM.
+    </div>
+    <!-- %%[ ENDIF ]%% -->
+
+    <!-- 4. Headline 2 -->
+    <!-- %%[ IF NOT EMPTY(@Headline2) THEN ]%% -->
+    <div style="position: absolute; z-index: 10; top: 348px; left: 23px; 
+                background-color: #FFFE00; color: #1D1D1F; 
+                font-size: 53px; font-weight: 900; padding: 9px 14px; 
+                line-height: 1.0; white-space: nowrap; pointer-events: none;">
+        MEINE REGELN.
+    </div>
+    <!-- %%[ ENDIF ]%% -->
+
+    <!-- 5. CTA Button -->
+    <!-- %%[ IF NOT EMPTY(@CTAText) THEN ]%% -->
+    <!-- ideally href="%%=v(@CTAUrl)=%%" -->
+    <a href="https://www.iu-fernstudium.de/studienplatz-sichern/" target="_blank" class="cta-button"
+       style="position: absolute; z-index: 10; top: 454px; left: 24px; 
+              background-color: #FFFE00; color: #1D1D1F; 
+              font-size: 25px; font-weight: 800; padding: 25px 35px; 
+              text-decoration: none; border: 3px solid #1D1D1F; border-radius: 100px; 
+              line-height: 1.0; display: inline-block; white-space: nowrap;">
+        INFOBROSCHÜRE HERUNTERLADEN
+    </a>
+    <!-- %%[ ENDIF ]%% -->
+
+    <!-- 6. Badge 1 (Top) -->
+    <!-- %%[ IF NOT EMPTY(@Badge1) THEN ]%% -->
+    <img src="1.png" alt="" 
+         style="position: absolute; z-index: 20; top: 93px; left: 1020px; width: 138px; display: block; border: 0; pointer-events: none;">
+    <!-- %%[ ENDIF ]%% -->
+
+    <!-- 7. Badge 2 (Middle) -->
+    <!-- %%[ IF NOT EMPTY(@Badge2) THEN ]%% -->
+    <img src="2.png" alt="" 
+         style="position: absolute; z-index: 20; top: 251px; left: 997px; width: 187px; display: block; border: 0; pointer-events: none;">
+    <!-- %%[ ENDIF ]%% -->
+
+    <!-- 8. Badge 3 (Bottom) -->
+    <!-- %%[ IF NOT EMPTY(@Badge3) THEN ]%% -->
+    <img src="3.png" alt="" 
+         style="position: absolute; z-index: 20; top: 391px; left: 992px; width: 198px; display: block; border: 0; pointer-events: none;">
+    <!-- %%[ ENDIF ]%% -->
+
+</div>
+
+</body>
+</html>
